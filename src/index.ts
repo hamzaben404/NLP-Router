@@ -1,4 +1,6 @@
-export type RouterInput = { message: string; userProfile?: { level?: string|null } };
+// src/index.ts
+export type RouterInput = { message: string; userProfile?: { level?: string | null } };
+
 export type RouterOutput = {
   action: "ROUTE" | "CLARIFY" | "UNSUPPORTED_LANGUAGE" | "BLOCKED";
   language: "fr" | "non_fr" | null;
@@ -14,10 +16,16 @@ export type RouterOutput = {
   topic: string | null;
   subtopic: string | null;
   format: "cours" | "exercice" | "qcm" | "demonstration" | null;
-  constraints: { difficulte: "auto" | "facile" | "moyen" | "difficile"; duree: string | null; indices: "oui" | "non" };
+  constraints: {
+    difficulte: "auto" | "facile" | "moyen" | "difficile";
+    duree: string | null; // "NNmin" or null
+    indices: "oui" | "non";
+  };
+  clarify?: { question: string }; // only when action === "CLARIFY"
+  reasonCode?: "unsupported_language" | "inappropriate_content" | "internal_validation_error" | "unknown"; // only for UNSUPPORTED_LANGUAGE/BLOCKED
 };
 
-/** Placeholder impl so build/tests pass */
+/** Temporary placeholder impl */
 export function routePrompt(_input: RouterInput): RouterOutput {
   return {
     action: "CLARIFY",
@@ -27,6 +35,7 @@ export function routePrompt(_input: RouterInput): RouterOutput {
     topic: null,
     subtopic: null,
     format: "cours",
-    constraints: { difficulte: "auto", duree: null, indices: "oui" }
+    constraints: { difficulte: "auto", duree: null, indices: "oui" },
+    clarify: { question: "Sur quel chapitre veux-tu travailler ?" }
   };
 }

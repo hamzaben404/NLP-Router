@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RouterOutput.v1",
+  "type": "object",
+  "required": ["action", "language", "constraints"],
+  "additionalProperties": false,
+
+  "properties": {
+    "action": {
+      "enum": ["ROUTE", "CLARIFY", "UNSUPPORTED_LANGUAGE", "BLOCKED"]
+    },
+
+    "language": { "enum": ["fr", "non_fr", null] },
+
+    "intent": {
+      "enum": [
+        "ASK_EXPLANATION",
+        "START_DIAGNOSTIC",
+        "PRACTICE_TOPIC",
+        "CHECK_SOLUTION",
+        "GENERATE_PLAN",
+        "OTHER_SUPPORT",
+        null
+      ]
+    },
+
+    "level": { "type": ["string", "null"], "minLength": 1 },
+    "topic": { "type": ["string", "null"], "minLength": 1 },
+    "subtopic": { "type": ["string", "null"], "minLength": 1 },
+
+    "format": { "enum": ["cours", "exercice", "qcm", "demonstration", null] },
+
+    "constraints": {
+      "type": "object",
+      "required": ["difficulte", "duree", "indices"],
+      "additionalProperties": false,
+      "properties": {
+        "difficulte": { "enum": ["auto", "facile", "moyen", "difficile"] },
+        "duree": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9]{1,3}min$"
+        },
+        "indices": { "enum": ["oui", "non"] }
+      }
+    },
+
+    "clarify": {
+      "type": "object",
+      "required": ["question"],
+      "additionalProperties": false,
+      "properties": {
+        "question": { "type": "string", "minLength": 3, "maxLength": 200 }
+      }
+    },
+
+    "reasonCode": {
+      "type": "string",
+      "enum": [
+        "unsupported_language",
+        "inappropriate_content",
+        "internal_validation_error",
+        "unknown"
+      ]
+    }
+  },
+
+  "allOf": [
+    {
+      "if": { "properties": { "action": { "const": "CLARIFY" } } },
+      "then": { "required": ["clarify"] }
+    },
+    {
+      "if": {
+        "properties": {
+          "action": { "enum": ["UNSUPPORTED_LANGUAGE", "BLOCKED"] }
+        }
+      },
+      "then": { "required": ["reasonCode"] }
+    }
+  ]
+}
