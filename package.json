@@ -13,7 +13,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "dev": "vitest watch",
-    "check": "npm run lint && npm run typecheck && npm run test"
+    "check": "npm run lint && npm run typecheck && npm run test && npm pkg set type='module'"
   },
   "keywords": [],
   "author": "",
@@ -34,5 +34,6 @@
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.45.0",
     "vitest": "^3.2.4"
-  }
+  },
+  "type": "module"
 }
