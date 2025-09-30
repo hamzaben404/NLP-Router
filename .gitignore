@@ -1,0 +1,12 @@
+# OS junk
+.DS_Store
+
+# Node
+node_modules/
+dist/
+coverage/
+*.log
+
+# Tooling
+.husky/_/
+.vscode/
