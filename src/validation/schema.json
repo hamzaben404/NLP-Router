@@ -4,14 +4,11 @@
   "type": "object",
   "required": ["action", "language", "constraints"],
   "additionalProperties": false,
-
   "properties": {
     "action": {
       "enum": ["ROUTE", "CLARIFY", "UNSUPPORTED_LANGUAGE", "BLOCKED"]
     },
-
     "language": { "enum": ["fr", "non_fr", null] },
-
     "intent": {
       "enum": [
         "ASK_EXPLANATION",
@@ -23,27 +20,20 @@
         null
       ]
     },
-
     "level": { "type": ["string", "null"], "minLength": 1 },
     "topic": { "type": ["string", "null"], "minLength": 1 },
     "subtopic": { "type": ["string", "null"], "minLength": 1 },
-
     "format": { "enum": ["cours", "exercice", "qcm", "demonstration", null] },
-
     "constraints": {
       "type": "object",
       "required": ["difficulte", "duree", "indices"],
       "additionalProperties": false,
       "properties": {
         "difficulte": { "enum": ["auto", "facile", "moyen", "difficile"] },
-        "duree": {
-          "type": ["string", "null"],
-          "pattern": "^[0-9]{1,3}min$"
-        },
+        "duree": { "type": ["string", "null"], "pattern": "^[0-9]{1,3}min$" },
         "indices": { "enum": ["oui", "non"] }
       }
     },
-
     "clarify": {
       "type": "object",
       "required": ["question"],
@@ -52,7 +42,6 @@
         "question": { "type": "string", "minLength": 3, "maxLength": 200 }
       }
     },
-
     "reasonCode": {
       "type": "string",
       "enum": [
@@ -63,11 +52,15 @@
       ]
     }
   },
-
   "allOf": [
     {
       "if": { "properties": { "action": { "const": "CLARIFY" } } },
-      "then": { "required": ["clarify"] }
+      "then": {
+        "required": ["clarify"],
+        "properties": {
+          "clarify": { "$ref": "#/properties/clarify" }
+        }
+      }
     },
     {
       "if": {
@@ -75,7 +68,12 @@
           "action": { "enum": ["UNSUPPORTED_LANGUAGE", "BLOCKED"] }
         }
       },
-      "then": { "required": ["reasonCode"] }
+      "then": {
+        "required": ["reasonCode"],
+        "properties": {
+          "reasonCode": { "$ref": "#/properties/reasonCode" }
+        }
+      }
     }
   ]
 }
