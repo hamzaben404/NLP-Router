@@ -1,4 +1,3 @@
 #!/bin/sh
 npx lint-staged --config .lintstagedrc.json --no-stash
-# fast checks for pre-commit
 npm run typecheck

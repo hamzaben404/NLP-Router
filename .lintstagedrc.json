@@ -1,8 +1,5 @@
 {
   "src/**/*.{ts,tsx,js}": "eslint --fix --cache",
   "tests/**/*.{ts,tsx,js}": "eslint --fix --cache",
-  "docs/**/*.md": "prettier --write",
-  "*.md": "prettier --write",
-  "*.json": "prettier --write",
-  "*.{yml,yaml}": "prettier --write"
+  "**/*.{md,json,yml,yaml}": "prettier --ignore-unknown --write"
 }
