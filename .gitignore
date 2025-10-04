@@ -1,12 +1,6 @@
-# OS junk
-.DS_Store
-
-# Node
 node_modules/
 dist/
+npm-debug.log*
+.DS_Store
 coverage/
-*.log
-
-# Tooling
-.husky/_/
 .vscode/

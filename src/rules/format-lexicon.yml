@@ -1,0 +1,29 @@
+# Map common words to one of: cours | exercice | qcm | demonstration
+cours:
+  - "cours"
+  - "leçon"
+  - "lecon"
+  - "explication"
+  - "expliquer"
+  - "explique-moi"
+
+exercice:
+  - "exercice"
+  - "exercices"
+  - "problème"
+  - "probleme"
+  - "entrainement"
+  - "entraînement"
+  - "feuille d'exercices"
+  - "td"
+
+qcm:
+  - "qcm"
+  - "quiz"
+  - "questionnaire"
+  - "multiple choice"
+
+demonstration:
+  - "démonstration"
+  - "demonstration"
+  - "preuve"

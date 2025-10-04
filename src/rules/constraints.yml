@@ -1,0 +1,36 @@
+difficulty:
+  facile:
+    - "facile"
+    - "simple"
+    - "niveau facile"
+  moyen:
+    - "moyen"
+    - "intermédiaire"
+    - "intermediaire"
+  difficile:
+    - "difficile"
+    - "avancé"
+    - "avance"
+    - "dur"
+
+indices:
+  oui:
+    - "indices"
+    - "avec indices"
+    - "aide"
+    - "pistes"
+  non:
+    - "sans indices"
+    - "sans aide"
+    - "pas d'indices"
+    - "pas d indices"
+    - "sans correction"
+
+duration_hints:
+  # phrases that often imply a duration follows
+  - "en"
+  - "pendant"
+  - "pour"
+  - "durée"
+  - "environ"
+  - "max"

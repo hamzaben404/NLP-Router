@@ -1,0 +1,35 @@
+[
+  {
+    "id": "equations_second_degre",
+    "synonyms": [
+      "équations du 2nd degré",
+      "equations du 2nd degré",
+      "équations quadratiques",
+      "équation du second degré",
+      "quadratique"
+    ]
+  },
+  {
+    "id": "derivees",
+    "synonyms": [
+      "dérivées",
+      "derivees",
+      "calcul de dérivée",
+      "taux de variation",
+      "fonction dérivable"
+    ]
+  },
+  {
+    "id": "inequations",
+    "synonyms": ["inéquations", "inequations", "résoudre une inéquation"]
+  },
+  {
+    "id": "geometrie_analytique",
+    "synonyms": [
+      "géométrie analytique",
+      "coordonnées",
+      "droite",
+      "plan cartésien"
+    ]
+  }
+]

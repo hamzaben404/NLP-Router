@@ -1,0 +1,17 @@
+[
+  {
+    "id": "discriminant",
+    "topicId": "equations_second_degre",
+    "synonyms": ["discriminant", "delta", "Δ"]
+  },
+  {
+    "id": "factorisation",
+    "topicId": "equations_second_degre",
+    "synonyms": ["factorisation", "factoriser"]
+  },
+  {
+    "id": "regle_de_chaine",
+    "topicId": "derivees",
+    "synonyms": ["règle de la chaîne", "regle de la chaine", "chain rule"]
+  }
+]

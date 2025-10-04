@@ -1,20 +1,36 @@
 {
-  "name": "nlp-router",
-  "version": "1.0.0",
+  "name": "@hmz404/nlp-router",
+  "version": "1.0.1",
   "description": "MVP router that turns a French prompt into a structured action + slots.",
   "type": "module",
   "license": "ISC",
-  "author": "",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
+  "author": "Hamza Ben",
+  "exports": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/"
   ],
+  "keywords": [
+    "nlp",
+    "router",
+    "french",
+    "education",
+    "intent",
+    "slots",
+    "esm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamzaben404/NLP-Router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hamzaben404/NLP-Router/issues"
+  },
+  "homepage": "https://github.com/hamzaben404/NLP-Router#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit",
@@ -31,12 +47,16 @@
     "doc": "docs",
     "test": "tests"
   },
+  "sideEffects": false,
   "dependencies": {
+    "@hmz404/nlp-router": "^1.0.1",
     "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1"
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.0.0",
     "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^9.0.0",

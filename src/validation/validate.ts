@@ -1,4 +1,4 @@
-import Ajv2020 from "ajv/dist/2020";
+import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import meta2020 from "ajv/dist/refs/json-schema-2020-12/schema.json" assert { type: "json" };
 import schema from "./schema.json" assert { type: "json" };

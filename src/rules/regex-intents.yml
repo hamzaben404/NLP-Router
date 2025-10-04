@@ -1,0 +1,41 @@
+# Priority: first match wins, top to bottom
+order:
+  - START_DIAGNOSTIC
+  - CHECK_SOLUTION
+  - GENERATE_PLAN
+  - PRACTICE_TOPIC
+  - ASK_EXPLANATION
+  - OTHER_SUPPORT
+
+patterns:
+  START_DIAGNOSTIC:
+    - '\b(passer|faire)\s+(un\s+)?(test|diagnostic|évaluation|evaluation)s?\b'
+    - '\bdiagnostic\b'
+    - '\btest\b'
+
+  CHECK_SOLUTION:
+    # allow a word like "ma" between "voici" and "solution/réponse"
+    - '\b(voici|c.?est)\b.*\b(solution|r(é|e)ponse)\b'
+    - '\bma\s+(solution|r(é|e)ponse)\b'
+    # "is it correct/right/just?"
+    - '\b(est[-\s]?ce\s+que\s+)?(c.?est)?\s*(correct|bon|juste)\s*\??\b'
+    # verbs like verify/correct
+    - '\b(v(é|e)rif(ie|er)|corrig(er|e))\b'
+
+  GENERATE_PLAN:
+    - '\b(plan|programme|planning|roadmap)\s+(de\s+)?r(é|e)vision(s)?\b'
+    - '\borganise(-| )?moi\s+(mes\s+)?r(é|e)visions?\b'
+
+  PRACTICE_TOPIC:
+    - '\b(exercice|exercices|entrainement|entraînement|probl(è|e)mes?)\s+(sur|de)\b'
+    - '\b(qcm)\b'
+    - '\b(je\s+veux|donne(-| )?moi|propose(-| )?moi)?\s*(des\s+)?(exercices?|entrainement|entraînement|qcm)\b'
+
+  ASK_EXPLANATION:
+    - '\b(explique(-| )?moi|expliquer|aide(-| )?moi\s+(à|a)\s+comprendre)\b'
+    - '\b(cours|le(ç|c)on|d(é|e)monstration)\b'
+
+  OTHER_SUPPORT:
+    - '\b(compte|connexion|inscription|mot\s+de\s+passe)\b'
+    - '\b(prix|tarif|abonnement|facture|paiement)\b'
+    - '\b(bug|erreur|probl(è|e)me\s+technique)\b'
