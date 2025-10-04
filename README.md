@@ -121,12 +121,6 @@ npm run test
 [ISC](./LICENSE)
 
 ```
-
----
-
-### `LICENSE` (ISC)
-ISC License
-
 Copyright (c) 2025, HMZ4040
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted,
